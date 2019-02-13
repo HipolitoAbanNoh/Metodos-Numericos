@@ -228,6 +228,16 @@ public class Errores extends javax.swing.JInternalFrame {
             //=====
             Double valorabsoluto = Math.abs(vreal-vaproximado);
             BigDecimal vabs = new BigDecimal(valorabsoluto);
+            vabs = vabs.setScale(decimales, RoundingMode.HALF_UP);
+            //Impresion de resultado
+            resultado1.setText("" + vabs); 
+            
+            Double valorrelativo = Math.abs(Math.abs((vreal-vaproximado)/vreal));
+            BigDecimal vre = new BigDecimal(valorrelativo);
+            vre = vre.setScale(decimales, RoundingMode.HALF_UP);
+            //Impresion de resultado
+            resultado2.setText("" + vre);
+        }
         
     }//GEN-LAST:event_calcularActionPerformed
 

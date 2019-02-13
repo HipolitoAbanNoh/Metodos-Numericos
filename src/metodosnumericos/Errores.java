@@ -198,7 +198,13 @@ public class Errores extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
-        
+        vv.setText(null);
+        va.setText(null);
+        cd.setText(null);
+        ea.setText(null);
+        er.setText(null);
+        resultado1.setText(null);
+        resultado2.setText(null);
     }//GEN-LAST:event_resetActionPerformed
 
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed

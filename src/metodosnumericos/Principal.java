@@ -27,11 +27,11 @@ Errores tema1 = new Errores();
         desktopPane.setLayout(desktopPaneLayout);
         desktopPaneLayout.setHorizontalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 393, Short.MAX_VALUE)
+            .addGap(0, 343, Short.MAX_VALUE)
         );
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 345, Short.MAX_VALUE)
+            .addGap(0, 463, Short.MAX_VALUE)
         );
 
         jMenu1.setText("MetodosNumericos");
@@ -68,7 +68,7 @@ Errores tema1 = new Errores();
 
     private void ErroresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ErroresActionPerformed
         //Error absoluto y error relativo
-                if (!desktopPane.isAncestorOf(tema1)) {
+            if (!desktopPane.isAncestorOf(tema1)) {
             int x = (desktopPane.getWidth() / 2) - (tema1.getWidth() / 2);
             int y = (desktopPane.getHeight() / 2) - (tema1.getHeight() / 2);
             desktopPane.add(tema1);

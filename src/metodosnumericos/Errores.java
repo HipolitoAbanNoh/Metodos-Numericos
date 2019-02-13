@@ -18,6 +18,7 @@ public class Errores extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         btntrunc = new javax.swing.JRadioButton();
         btnredon = new javax.swing.JRadioButton();
@@ -40,8 +41,10 @@ public class Errores extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Selecciona una opción"));
 
+        buttonGroup1.add(btntrunc);
         btntrunc.setText("truncamiento");
 
+        buttonGroup1.add(btnredon);
         btnredon.setText("redondeo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -244,6 +247,7 @@ public class Errores extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton btnredon;
     private javax.swing.JRadioButton btntrunc;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton calcular;
     private javax.swing.JTextField cd;
     private javax.swing.JTextField ea;

@@ -1,5 +1,9 @@
 package metodosnumericos;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.NumberFormat;
+import java.text.DecimalFormat;
 public class Errores extends javax.swing.JInternalFrame {
 
     public Errores() {

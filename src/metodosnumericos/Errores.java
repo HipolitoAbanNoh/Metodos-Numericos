@@ -199,13 +199,29 @@ public class Errores extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_resetActionPerformed
 
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
+
         double vreal = Double.parseDouble(vv.getText());     
         double vaproximado = Double.parseDouble(va.getText());
-         
+        //Establecemos el numero de decimales
+        if(btntrunc.isSelected()){   
+            ea.setText("" + Math.abs(vreal-vaproximado));
+            er.setText("" + Math.abs((vreal-vaproximado)/vreal));  
             
-           
-           
-        
+            //============ valor truncado de error absoluto
+            //convirtiendo valor de decimales a entero
+            int decimales=Integer.parseInt(cd.getText());
+            //calculo de valor absoluto
+            double calabs = Math.abs(vreal-vaproximado);
+            double resulabs=calabs;
+            String abs = "" + calabs;
+            int absolut = abs.indexOf('.');
+            if (absolut!=-1) {
+                if (abs.length() > absolut+decimales) {
+                    abs = abs.substring(0,absolut+decimales+1);
+                    resulabs  = Double.parseDouble(abs);
+                }
+                resultado1.setText(""+resulabs);
+            }
     }//GEN-LAST:event_calcularActionPerformed
 
 

@@ -216,7 +216,19 @@ public class Errores extends javax.swing.JInternalFrame {
             //Truncamiento relativo 
             //Convertimos el numero 
             resultado2.setText(nf.format(Math.abs((vreal-vaproximado)/vreal)));
-        }
+        }else if(btnredon.isSelected()){
+            ea.setText("" + Math.abs(vreal-vaproximado));
+            er.setText("" + Math.abs((vreal-vaproximado)/vreal));
+            //================
+            int decimales=Integer.parseInt(cd.getText());
+            //Double valorAbsoluto=Double.parseDouble(ea.getText());    
+            
+            //double redondear= new BigDecimal(valorAbsoluto).setScale(decimales, RoundingMode.HALF_EVEN).doubleValue();
+            //resultado1.setText("" + redondear); 
+            //=====
+            Double valorabsoluto = Math.abs(vreal-vaproximado);
+            BigDecimal vabs = new BigDecimal(valorabsoluto);
+        
     }//GEN-LAST:event_calcularActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -7,6 +7,7 @@ import java.text.DecimalFormat;
 public class Errores extends javax.swing.JInternalFrame {
 
     public Errores() {
+        setSize(400,200);
         initComponents();
         this.setClosable(true);
         this.setMaximizable(true);
@@ -194,7 +195,7 @@ public class Errores extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
-
+        
     }//GEN-LAST:event_resetActionPerformed
 
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed

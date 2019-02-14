@@ -27,7 +27,7 @@ Errores tema1 = new Errores();
         setPreferredSize(new java.awt.Dimension(343, 654));
         getContentPane().setLayout(null);
 
-        desktopPane.setBackground(new java.awt.Color(153, 153, 255));
+        desktopPane.setBackground(new java.awt.Color(51, 51, 255));
         desktopPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/metodosnumericos/iconos/OnePlusX.jpg"))); // NOI18N

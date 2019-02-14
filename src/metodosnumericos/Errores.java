@@ -41,6 +41,8 @@ public class Errores extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         Porcental1 = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(153, 255, 204));
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Selecciona una opción"));
 
         buttonGroup1.add(btntrunc);
@@ -101,7 +103,7 @@ public class Errores extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Porcentual");
 
-        Porcental1.setText("    %");
+        Porcental1.setText("      %");
         Porcental1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Porcental1ActionPerformed(evt);
@@ -165,15 +167,13 @@ public class Errores extends javax.swing.JInternalFrame {
                                 .addGap(36, 36, 36)
                                 .addComponent(calcular))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(76, 76, 76)
-                                .addComponent(jLabel6))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(41, 41, 41)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(13, 13, 13)
-                                        .addComponent(Porcental1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Porcental1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );

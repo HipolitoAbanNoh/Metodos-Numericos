@@ -38,14 +38,16 @@ public class Errores extends javax.swing.JInternalFrame {
         resultado2 = new javax.swing.JTextField();
         cd = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        Porcental1 = new javax.swing.JTextField();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Selecciona una opción"));
 
         buttonGroup1.add(btntrunc);
-        btntrunc.setText("truncamiento");
+        btntrunc.setText("Truncamiento");
 
         buttonGroup1.add(btnredon);
-        btnredon.setText("redondeo");
+        btnredon.setText("Redondeo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -67,7 +69,7 @@ public class Errores extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel8.setText("absoluto");
+        jLabel8.setText("Absoluto");
 
         reset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/metodosnumericos/iconos/reset.jpg"))); // NOI18N
         reset.setText("Reset");
@@ -95,7 +97,16 @@ public class Errores extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Cantidad Decimales");
 
-        jLabel7.setText("relativo");
+        jLabel7.setText("Relativo");
+
+        jLabel6.setText("Porcentual");
+
+        Porcental1.setText("    %");
+        Porcental1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Porcental1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -149,14 +160,22 @@ public class Errores extends javax.swing.JInternalFrame {
                                                 .addComponent(ea)))))
                                 .addGap(0, 11, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(calcular))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(76, 76, 76)
+                                .addComponent(jLabel6))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addComponent(Porcental1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(calcular)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,9 +212,13 @@ public class Errores extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(resultado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(resultado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Porcental1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(reset)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -209,11 +232,13 @@ public class Errores extends javax.swing.JInternalFrame {
         er.setText(null);
         resultado1.setText(null);
         resultado2.setText(null);
+        Porcental1.setText(null);
     }//GEN-LAST:event_resetActionPerformed
 
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
         double vreal = Double.parseDouble(vv.getText());     
         double vaproximado = Double.parseDouble(va.getText());
+        double porcenta2=0;
         //Establecemos el numero de decimales
         if(btntrunc.isSelected()){   
             ea.setText("" + Math.abs(vreal-vaproximado));
@@ -245,6 +270,7 @@ public class Errores extends javax.swing.JInternalFrame {
                     resulrel  = Double.parseDouble(relat);
                 }
                 resultado2.setText(""+resulrel);
+                Porcental1.setText(""+resulrel*100);
             }
         }else if(btnredon.isSelected()){
             ea.setText("" + Math.abs(vreal-vaproximado));
@@ -266,12 +292,24 @@ public class Errores extends javax.swing.JInternalFrame {
             BigDecimal vre = new BigDecimal(valorrelativo);
             vre = vre.setScale(decimales, RoundingMode.HALF_UP);
             //Impresion de resultado
+            
             resultado2.setText("" + vre);
+            porcenta2 = ( Math.abs((vreal-vaproximado)/vreal))*100;
+            BigDecimal pc = new BigDecimal(porcenta2);
+            pc = pc.setScale(decimales, RoundingMode.HALF_UP);
+            
+            Porcental1.setText("" + pc);
+            
         }
         
     }//GEN-LAST:event_calcularActionPerformed
 
+    private void Porcental1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Porcental1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Porcental1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Porcental1;
     private javax.swing.JRadioButton btnredon;
     private javax.swing.JRadioButton btntrunc;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -284,6 +322,7 @@ public class Errores extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
